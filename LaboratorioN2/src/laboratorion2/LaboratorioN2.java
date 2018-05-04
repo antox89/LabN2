@@ -8,18 +8,16 @@ public class LaboratorioN2 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        
+
         Alumno al = new Alumno();
         Examen ex = new Examen();
-        
+
         ArrayList<Examen> examenes = new ArrayList();
         ArrayList<Examen> materia = new ArrayList();
-        
+
         ArrayList alumno = new ArrayList();
-        
+
         String user = "admin", pwd = "123";
-        
-        
 
         int menu = -1;
 
@@ -37,37 +35,33 @@ public class LaboratorioN2 {
                         switch (menuMa) {//switch crear exámenes
                             case 1://crear
                                 String nombre;
-                                
+
                                 System.out.println("Ingrese el nombre de la clase");
                                 nombre = sc.next();
-                                
-                                
-                                ArrayList<String> pregunta= new ArrayList();
-                                String preg="";
-                                
-                                do{
+
+                                ArrayList<String> pregunta = new ArrayList();
+                                String preg = "";
+
+                                do {
                                     System.out.println("Ingrese una pregunta: ");
-                                    preg=sc.next();
-                                    
+                                    preg = sc.next();
+
                                     pregunta.add(preg);
-                                    
+
                                     System.out.println("Agregar otra pregunta? (si/no)");
-                                    preg=sc.next();
-                                    
-                                }while(!preg.equalsIgnoreCase("no"));
-                                
+                                    preg = sc.next();
+
+                                } while (!preg.equalsIgnoreCase("no"));
+
                                 examenes.add(new Examen(nombre));
-                                examenes.get(examenes.size()-1).setPreguntas(pregunta);
-                                
+                                examenes.get(examenes.size() - 1).setPreguntas(pregunta);
 
                                 break;
                             case 2://Revisar Exámenes
                                 int pos;
                                 System.out.println("Ingrese el posición del examen a revisar:\n");
-                                pos=sc.nextInt();
-                                
-                                
-                                
+                                pos = sc.nextInt();
+
                                 for (Object temp : examenes) {
                                     if (temp instanceof Examen) {
 
@@ -103,29 +97,29 @@ public class LaboratorioN2 {
                                  edad;
                                 System.out.println("<<Registro de Alumnos>>");
                                 System.out.println("Nombre del Alumno:");
-                                nombre=sc.next();
+                                nombre = sc.next();
                                 System.out.println("Numero de Cuenta:");
-                                nCuenta=sc.nextInt();
+                                nCuenta = sc.nextInt();
                                 System.out.println("Fecha de Nacimiento:");
-                                date=sc.next();
+                                date = sc.next();
                                 System.out.println("Edad:");
-                                edad=sc.nextInt();
+                                edad = sc.nextInt();
                                 System.out.println("Ciudad de Nacimiento:");
-                                ciudad=sc.next();
+                                ciudad = sc.next();
                                 System.out.println("Nacionalidad:");
-                                nacionalidad=sc.next();
+                                nacionalidad = sc.next();
                                 System.out.println("ID:");
-                                ID=sc.nextInt();
+                                ID = sc.nextInt();
                                 System.out.println("Usuario:");
-                                usuaro=sc.next();
+                                usuaro = sc.next();
                                 System.out.println("Password:");
-                                password=sc.next();
-                                
-                                alumno.add(new Alumno(nombre, date, ciudad, 
+                                password = sc.next();
+
+                                alumno.add(new Alumno(nombre, date, ciudad,
                                         nacionalidad, usuaro, password, nCuenta, ID, edad));
-                                
+
                                 System.out.println("¡Alumno Creado Exitosamente!\n");
-                                
+
                                 break;
                         }//final switch crear cuentas
 
@@ -165,18 +159,53 @@ public class LaboratorioN2 {
                                                 al.toString();
                                                 for (Object temp : alumno) {
                                                     if (temp instanceof Alumno) {
-                                                        
+
                                                     }
                                                 }
                                                 break;
                                             case 2://Modificar Datos
-                                                
+
+                                                int pos=Integer.parseInt("Ingrese la posición: ");
+                                                        String nombre,
+                                                                date,
+                                                                ciudad,
+                                                                nacionalidad,
+                                                                usuaro,
+                                                                pass;
+                                                        int nCuenta,
+                                                                ID,
+                                                                edad;
+                                                        System.out.println("<<Modificar Alumno>>");
+                                                        System.out.println("Nombre del Alumno:");
+                                                        nombre = sc.next();
+                                                        System.out.println("Numero de Cuenta:");
+                                                        nCuenta = sc.nextInt();
+                                                        System.out.println("Fecha de Nacimiento:");
+                                                        date = sc.next();
+                                                        System.out.println("Edad:");
+                                                        edad = sc.nextInt();
+                                                        System.out.println("Ciudad de Nacimiento:");
+                                                        ciudad = sc.next();
+                                                        System.out.println("Nacionalidad:");
+                                                        nacionalidad = sc.next();
+                                                        System.out.println("ID:");
+                                                        ID = sc.nextInt();
+                                                        System.out.println("Usuario:");
+                                                        usuaro = sc.next();
+                                                        System.out.println("Password:");
+                                                        pass = sc.next();
+
+                                                        alumno.set(pos, new Alumno(nombre, date, ciudad,
+                                                                nacionalidad, usuaro, pass, nCuenta, ID, edad));
+
+                                                        System.out.println("¡Alumno Modificado Exitosamente!\n");
+                                                    
                                                 
                                                 break;
                                             case 3://Realizar Exámen
                                                 break;
                                             case 4://Modificar notas
-                                                
+
                                                 break;
 
                                         }
