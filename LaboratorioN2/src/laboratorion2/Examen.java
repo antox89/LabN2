@@ -12,7 +12,6 @@ public class Examen {
     private ArrayList respuestas = new ArrayList<>();
 
     public Examen(){
-        
     }
     
     public Examen(String nombreClase) {
